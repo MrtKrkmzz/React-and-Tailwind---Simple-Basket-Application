@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-
-const CardIcon = ({ card }) => {
+import { CardContext } from "../context/CardContext";
+const CardIcon = () => {
+  const {card} = useContext(CardContext)
   return (
     <div className="relative">
       <FiShoppingCart className="text-2xl" />

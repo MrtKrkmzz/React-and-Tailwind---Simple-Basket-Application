@@ -1,6 +1,7 @@
-import React from "react";
-
-const Card = ({card,setCard}) => {
+import React, { useContext } from "react";
+import { CardContext } from "../context/CardContext";
+const Card = () => {
+  const {card,setCard}=useContext(CardContext)
   const total = card.reduce((acc, item)=> acc+item.price,0)
   if(card.length === 0)return
   {
@@ -9,7 +10,7 @@ const Card = ({card,setCard}) => {
         <h2 className="text-2xl font-semibold">Sepet</h2>
         <ul>
           {card.map(item=>(
-           <li className="mt-2 flex justify-between">
+           <li className="mt-2 flex justify-between" key={item.id}>
            <span>{item.name}</span>
            <span>{item.price}</span>
          </li>

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CardContext } from '../context/CardContext'
 
-const ProductItem = ({product,card,setCard}) => {
+const ProductItem = ({product}) => {
+  const {card,setCard} = useContext(CardContext)
   const disabledButton = card.find((item)=> item.id === product.id)
   const addToCard = () =>{
     setCard((praveState)=>[...praveState, product])
